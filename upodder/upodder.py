@@ -74,7 +74,10 @@ class EntryProcessor(object):
     "Processes single feed entry"
     def __init__(self, entry, feed):
         self.hashed = hashlib.sha1(entry['title'].encode('ascii', 'ignore')).hexdigest()
-        self.pub_date = dt.fromtimestamp(time.mktime(entry.published_parsed))
+        try:
+            self.pub_date = dt.fromtimestamp(time.mktime(entry.published_parsed))
+        except:
+            self.pub_date = dt.now()
 
         if args.mark_seen:
             SeenEntry(pub_date=self.pub_date, hashed=self.hashed)
