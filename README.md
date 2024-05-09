@@ -1,3 +1,5 @@
+This repo contains just a fix for a problem with some feed that was preventing the program to run.
+
 (Idea and first version from Stan Vitkovsky. Forked from https://code.google.com/p/upodder/)
 
 # Simple podcast downloader for the command line
